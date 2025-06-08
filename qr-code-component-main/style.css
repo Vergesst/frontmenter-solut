@@ -1,0 +1,98 @@
+/* 通用样式和盒模型设置 */
+body {
+    background-color: hsl(212, 45%, 89%); /* 接近图片中的浅蓝色背景 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 main 和 attribution */
+    justify-content: center; /* 垂直居中 */
+    align-items: center;     /* 水平居中 */
+    min-height: 100vh;       /* 确保 body 至少占满视口高度 */
+    margin: 0;               /* 移除默认外边距 */
+    font-family: 'Outfit', sans-serif; /* 假设字体，如果需要特定字体，需引入 */
+    box-sizing: border-box;  /* 全局设置盒模型为 border-box */
+    padding: 20px; /* 防止内容贴边 */
+}
+
+/* 主容器 */
+main {
+    display: flex; /* 使用 Flexbox 确保卡片和 attribution 垂直居中 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 22px); /* 减去 attribution 的高度，让 main 居中 */
+    width: 100%; /* 允许 main 占据全部宽度 */
+}
+
+/* 卡片容器 */
+.card-container {
+    background-color: #fff; /* 白色背景 */
+    border-radius: 20px;               /* 圆角 */
+    padding: 16px;                     /* 卡片内部的整体内边距，给图片和文本留白 */
+    text-align: center;                /* 文本居中 */
+    
+    /* 核心：设置最大宽度和自适应宽度 */
+    max-width: 320px;                  /* 根据图片估算的卡片最大宽度 */
+    width: 100%;                       /* 确保在小屏幕上宽度自适应 */
+    
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    /* 确保 padding 包含在 width 和 max-width 内 */
+    box-sizing: border-box; 
+    
+    margin-bottom: 20px; /* 与 attribution 之间的间距 */
+}
+
+/* QR 码图片的包裹器 */
+.qr-code-wrapper {
+    background-color: hsl(212, 45%, 89%); /* 根据图片，二维码背景是卡片背景色，或者也可以是蓝色 */
+    border-radius: 10px;               /* 圆角 */
+    /* 由于图片本身会填充，这里无需额外 padding，图片 padding 会在 image 样式中处理 */
+    overflow: hidden; /* 确保图片圆角不会溢出 */
+}
+
+/* QR 码图片本身 */
+.qr-image {
+    display: block;      /* 确保图片是块级元素 */
+    width: 100%;         /* 图片宽度填充其父容器 (.qr-code-wrapper) */
+    height: auto;        /* 保持图片比例 */
+    border-radius: 10px; /* 图片自身的圆角，与外部 wrapper 保持一致 */
+    /* 图中 QR 码与蓝色背景有一定间距，我们可以通过图片本身的内边距来实现，或者 qr-code-wrapper 的 padding */
+    /* 这里我们选择在 qr-code-wrapper 上设置 padding，或者让图片本身有 margin，这里选择 qr-code-wrapper */
+}
+
+/* 文本内容包裹器 */
+.text-wrapper {
+    padding: 10px 0 0; /* 标题与图片之间，以及标题和描述之间的一些顶部内边距 */
+}
+
+/* 标题 */
+.text1 {
+    font-size: 22px; /* 标题字号 */
+    font-weight: 700; /* 加粗 */
+    color: hsl(218, 44%, 22%); /* 深蓝色 */
+    margin: 0 0 10px 0; /* 移除默认外边距，设置底部外边距 */
+    line-height: 1.3;
+    padding: 0 10px; /* 文本左右内边距，防止贴边，并确保换行 */
+}
+
+/* 描述 */
+.text2 {
+    font-size: 15px; /* 描述字号 */
+    font-weight: 400; /* 普通 */
+    color: hsl(220, 15%, 55%); /* 灰色 */
+    margin: 0 0 10px 0; /* 移除默认外边距，设置底部外边距 */
+    line-height: 1.4;
+    padding: 0 10px; /* 文本左右内边距，防止贴边，并确保换行 */
+}
+
+
+/* 底部归属信息 */
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    position: absolute; /* 绝对定位，放在底部 */
+    bottom: 10px;
+    width: 100%;
+    left: 0;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
