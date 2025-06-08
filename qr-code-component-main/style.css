@@ -37,12 +37,19 @@ main {
     /* 确保 padding 包含在 width 和 max-width 内 */
     box-sizing: border-box; 
     
-    margin-bottom: 20px; /* 与 attribution 之间的间距 */
+    /* 与 attribution 之间的间距 */
+    /* 
+        因为attribution使用了
+        position: absolute
+        此时组件的渲染脱离了文档流
+        也就是说不需要依靠别的组件进行定位
+    */
+    /* margin-bottom: 20px;  */
 }
 
 /* QR 码图片的包裹器 */
 .qr-code-wrapper {
-    background-color: hsl(212, 45%, 89%); /* 根据图片，二维码背景是卡片背景色，或者也可以是蓝色 */
+    background-color: hsl(212, 61.80%, 82.50%); /* 根据图片，二维码背景是卡片背景色，或者也可以是蓝色 */
     border-radius: 10px;               /* 圆角 */
     /* 由于图片本身会填充，这里无需额外 padding，图片 padding 会在 image 样式中处理 */
     overflow: hidden; /* 确保图片圆角不会溢出 */
